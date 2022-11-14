@@ -17,13 +17,17 @@ namespace ShowResultBackend.Controllers
 
             if (result)
             {
-                StatusCode(StatusCodes.Status200OK);
-                return new JsonResult("The task has been done successfully.");
+                return new JsonResult("The task has been done successfully.")
+                {
+                    StatusCode = StatusCodes.Status200OK
+                };
             }
             else
             {
-                StatusCode(StatusCodes.Status500InternalServerError);
-                return new JsonResult("An error occured. Try it later.");
+                return new JsonResult("An error occured. Try it later.")
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
             }
         }
     }
